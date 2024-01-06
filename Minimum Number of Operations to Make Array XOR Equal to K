@@ -1,0 +1,19 @@
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        g = 0
+        f = 0
+        for j in range(32):
+            c = 0
+            for i in range(len(nums)):
+                if (nums[i] & (1<<j)) == 1<<j:
+                    c += 1
+            if k & 1 == 1 :
+                if c % 2 == 0:
+                    g += 1
+                    
+            else:
+                if c % 2 :
+                    g += 1
+            k = k >> 1
+        return g
+        
